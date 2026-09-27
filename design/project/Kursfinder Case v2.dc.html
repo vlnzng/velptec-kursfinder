@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E6EAEE;color:#011F3C;font-family:'Atkinson Hyperlegible Next','Atkinson Hyperlegible',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#011F3C}a:hover{color:#0B6E69}
+button{font-family:inherit}input{font-family:inherit}
+</style>
+</helmet>
+<div style="width:1400px;padding:72px 64px 120px;display:flex;flex-direction:column;gap:96px">
+
+<header style="max-width:760px;display:flex;flex-direction:column;gap:16px">
+  <img src="https://cdn.prod.website-files.com/68975397b55e5d47f8c8fbd1/69026dfcd40e72ca7ddf68ec_velpTEC_logo_primaer_dunkel.svg" alt="velpTEC" style="height:22px;width:auto;align-self:flex-start">
+  <h1 style="margin:16px 0 0;font-size:44px;line-height:52px;font-weight:700;letter-spacing:-0.01em">Kursfinder</h1>
+  <p style="margin:0;font-size:20px;line-height:30px;color:#4A5B6D;text-wrap:pretty">Zwei Wege zur passenden Weiterbildung: ein Klickfinder mit vier Fragen und ein Vorab-Chat. Beide enden auf derselben Ergebnisseite. Dort kann man die Kurse im Detail ansehen und optional eine Beratung zum Wunschkurs anfragen. Sales bekommt eine kompakte Zusammenfassung fürs Erstgespräch.</p>
+  <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D">Fiktiver Case. Alle Angaben, Namen und Zitate sind ausgedacht. Alle Screens sind klickbar.</p>
+</header>
+
+<section id="plan" data-screen-label="01 Designplan" style="display:flex;flex-direction:column;gap:32px">
+  <div style="max-width:760px;display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-size:32px;line-height:40px;font-weight:700">1 · Designplan</h2>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Ruhig, gut lesbar, große Touch-Flächen. Das Nachtblau aus dem Logo trägt Text und Aktionen. Flächen werden mit Linien getrennt, nicht mit Schatten.</p>
+  </div>
+  <div style="background:#FFFFFF;border-radius:20px;padding:40px;display:grid;grid-template-columns:1.25fr 1fr;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h3 style="margin:0;font-size:20px;line-height:26px;font-weight:700">Farben</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="height:88px;border-radius:12px;background:#011F3C"></div><div style="font-size:17px;font-weight:700">Nachtblau</div><div style="font-size:15px;line-height:22px;color:#4A5B6D">#011F3C · Anker aus dem Logo. Text, Primärbutton, Auswahl</div></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="height:88px;border-radius:12px;background:#4A5B6D"></div><div style="font-size:17px;font-weight:700">Schiefer</div><div style="font-size:15px;line-height:22px;color:#4A5B6D">#4A5B6D · Zweittext, Ränder von Eingabefeldern</div></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="height:88px;border-radius:12px;background:#EFF3F7;border:1px solid #D3DBE3;box-sizing:border-box;display:flex;align-items:flex-end;padding:8px"><div style="height:20px;flex:1;border-radius:6px;background:#D3DBE3"></div></div><div style="font-size:17px;font-weight:700">Nebel und Linie</div><div style="font-size:15px;line-height:22px;color:#4A5B6D">#EFF3F7 Flächen, KI-Blasen · #D3DBE3 Trennlinien, Kachelränder</div></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="height:88px;border-radius:12px;background:#0B6E69;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box"><div style="height:20px;flex:1;border-radius:6px;background:#E4F1EF"></div></div><div style="font-size:17px;font-weight:700">Petrol</div><div style="font-size:15px;line-height:22px;color:#4A5B6D">#0B6E69 + Tönung #E4F1EF · Förderung, erfüllte Voraussetzung</div></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="height:88px;border-radius:12px;background:#8A5300;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box"><div style="height:20px;flex:1;border-radius:6px;background:#FFF3DC"></div></div><div style="font-size:17px;font-weight:700">Bernstein</div><div style="font-size:15px;line-height:22px;color:#4A5B6D">#8A5300 + Tönung #FFF3DC · Hinweise und Einschränkungen</div></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><div style="height:88px;border-radius:12px;background:#FFFFFF;border:1px solid #D3DBE3;box-sizing:border-box"></div><div style="font-size:17px;font-weight:700">Weiß</div><div style="font-size:15px;line-height:22px;color:#4A5B6D">#FFFFFF · Grund. Alle Textfarben erreichen mindestens 4,5 : 1</div></div>
+      </div>
+      <h3 style="margin:24px 0 0;font-size:20px;line-height:26px;font-weight:700">Abstände und Radien</h3>
+      <div style="display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:4px;height:4px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">4</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:8px;height:8px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">8</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:12px;height:12px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">12</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:16px;height:16px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">16</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:24px;height:24px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">24</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:32px;height:32px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">32</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:48px;height:48px;background:#011F3C"></div><span style="font-size:15px;color:#4A5B6D">48</span></div>
+        <div style="width:1px;height:48px;background:#D3DBE3;margin:0 8px"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:56px;height:48px;border:1.5px solid #011F3C;border-radius:8px"></div><span style="font-size:15px;color:#4A5B6D">8 Felder</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:56px;height:48px;border:1.5px solid #011F3C;border-radius:12px"></div><span style="font-size:15px;color:#4A5B6D">12 Kacheln</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:56px;height:48px;border:1.5px solid #011F3C;border-radius:6px 20px 20px 20px"></div><span style="font-size:15px;color:#4A5B6D">20 Blasen</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:72px;height:48px;border:1.5px solid #011F3C;border-radius:999px"></div><span style="font-size:15px;color:#4A5B6D">rund Chips</span></div>
+      </div>
+      <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D">4er-Raster. Seitenrand mobil 20 px. Touch-Flächen mindestens 48 px hoch, Antwortkacheln 60 px und mehr.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <h3 style="margin:0;font-size:20px;line-height:26px;font-weight:700">Schrift: Atkinson Hyperlegible Next</h3>
+      <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D;text-wrap:pretty">Entwickelt für Lesbarkeit, auch bei Sehschwäche. Buchstaben wie I, l und 1 sind klar unterscheidbar. Eine Familie, zwei Schnitte: Regular und Bold.</p>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #D3DBE3">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #D3DBE3"><span style="font-size:28px;line-height:34px;font-weight:700">Das passt zu dir</span><span style="font-size:15px;color:#4A5B6D;flex:none">Titel 28/34 Bold</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #D3DBE3"><span style="font-size:24px;line-height:30px;font-weight:700">Was interessiert dich?</span><span style="font-size:15px;color:#4A5B6D;flex:none">Frage 24/30 Bold</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #D3DBE3"><span style="font-size:20px;line-height:26px;font-weight:700">Data Analytics mit Python</span><span style="font-size:15px;color:#4A5B6D;flex:none">Kurs 20/26 Bold</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #D3DBE3"><span style="font-size:17px;line-height:26px">Du lernst, Daten auszuwerten.</span><span style="font-size:15px;color:#4A5B6D;flex:none">Text 17/26 Regular</span></div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #D3DBE3"><span style="font-size:15px;line-height:22px;color:#4A5B6D">16 Wochen · Vollzeit online</span><span style="font-size:15px;color:#4A5B6D;flex:none">Klein 15/22 Regular</span></div>
+      </div>
+      <h3 style="margin:16px 0 0;font-size:20px;line-height:26px;font-weight:700">Regeln</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:17px;line-height:24px">
+        <div>Ein Primärbutton pro Screen. Er sagt, was passiert.</div>
+        <div>Überschriften stehen allein, ohne Label darüber.</div>
+        <div>Keine Schatten. Linien und Nebel-Flächen gliedern.</div>
+        <div>Kein Text unter 15 px, Fließtext 17 px.</div>
+        <div>Die KI sagt, dass sie eine KI ist, und sagt keine Förderung zu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="klick" data-screen-label="02 Klickfinder" style="display:flex;gap:56px;align-items:flex-start">
+  <div style="width:320px;flex:none;display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-size:32px;line-height:40px;font-weight:700">2 · Klickfinder</h2>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Vier Fragen, alles zum Antippen. Keine Texteingabe und keine Kontaktdaten, bevor es Ergebnisse gibt (Stimmen 3, 10, 11).</p>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Frage 2 bis 4 liefern genau das, was Sales vorab braucht: Situation, Starttermin, Kontakt zur Arbeitsagentur (Stimme 6).</p>
+    <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D">Klickbar: Antworten wählen, Weiter, Zurück.</p>
+  </div>
+  <div data-screen-label="A Klickfinder" style="width:390px;height:844px;flex:none;background:#FFFFFF;border-radius:40px;border:1px solid #C9D2DB;overflow:hidden;display:flex;flex-direction:column">
+    <div style="height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:15px;font-weight:700"><span>9:41</span><span style="width:22px;height:10px;border:1.5px solid #011F3C;border-radius:3px"></span></div>
+    <div style="height:56px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid #D3DBE3">
+      <img src="https://cdn.prod.website-files.com/68975397b55e5d47f8c8fbd1/69026dfcd40e72ca7ddf68ec_velpTEC_logo_primaer_dunkel.svg" alt="velpTEC" style="height:17px;width:auto">
+      <button style="height:48px;padding:0 4px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;cursor:pointer">Schließen</button>
+    </div>
+    <div style="flex:none;padding:4px 20px 0">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <button onClick="{{ kBack }}" style="height:48px;padding:0 12px;margin-left:-12px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;cursor:pointer;opacity:{{ kBackOpacity }}">Zurück</button>
+        <span style="font-size:15px;color:#4A5B6D">{{ kStatus }}</span>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:2px">
+        <sc-for list="{{ kProgress }}" as="p" hint-placeholder-count="4"><div style="flex:1;height:6px;border-radius:999px;background:{{ p.bg }}"></div></sc-for>
+      </div>
+    </div>
+    <div style="flex:1;overflow:auto;padding:24px 20px 24px">
+      <sc-if value="{{ kNotDone }}" hint-placeholder-val="{{ true }}">
+        <h1 style="margin:0;font-size:24px;line-height:30px;font-weight:700;text-wrap:pretty">{{ kQ.title }}</h1>
+        <p style="margin:8px 0 0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">{{ kQ.sub }}</p>
+        <sc-if value="{{ kGrid }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px">
+            <sc-for list="{{ kOpts }}" as="o" hint-placeholder-count="7">
+              <button onClick="{{ o.onClick }}" style="grid-column:{{ o.span }};min-height:{{ o.minH }};position:relative;text-align:left;display:flex;flex-direction:column;justify-content:flex-start;gap:4px;padding:14px 44px 16px 14px;border-radius:12px;border:1px solid {{ o.border }};box-shadow:{{ o.ring }};background:{{ o.bg }};color:#011F3C;cursor:pointer">
+                <span style="position:absolute;top:14px;right:14px;width:24px;height:24px;box-sizing:border-box;border-radius:6px;border:1.5px solid {{ o.indBorder }};background:{{ o.indBg }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">{{ o.indMark }}</span>
+                <span style="font-size:17px;line-height:22px;font-weight:700">{{ o.label }}</span>
+                <sc-if value="{{ o.hasHint }}"><span style="font-size:15px;line-height:20px;color:#4A5B6D">{{ o.hint }}</span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ kList }}">
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px">
+            <sc-for list="{{ kOpts }}" as="o" hint-placeholder-count="4">
+              <button onClick="{{ o.onClick }}" style="min-height:60px;width:100%;display:flex;align-items:center;gap:14px;padding:14px 16px;text-align:left;border-radius:12px;border:1px solid {{ o.border }};box-shadow:{{ o.ring }};background:{{ o.bg }};color:#011F3C;cursor:pointer">
+                <span style="flex:none;width:24px;height:24px;box-sizing:border-box;border-radius:{{ o.indRadius }};border:{{ o.indBorderW }} solid {{ o.indBorder }};background:{{ o.indBg }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">{{ o.indMark }}</span>
+                <span style="display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:17px;line-height:24px;font-weight:700">{{ o.label }}</span>
+                  <sc-if value="{{ o.hasHint }}"><span style="font-size:15px;line-height:20px;color:#4A5B6D">{{ o.hint }}</span></sc-if>
+                </span>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ kExplain }}">
+          <div style="margin-top:16px;background:#EFF3F7;border-radius:12px;padding:16px;font-size:17px;line-height:26px;text-wrap:pretty">Die Agentur für Arbeit oder das Jobcenter kann eine Weiterbildung mit einem Bildungsgutschein bezahlen. Dafür brauchst du dort einen Termin. Wie das geht, erklären wir dir gern in der Beratung.</div>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ kDone }}">
+        <h1 style="margin:0;font-size:24px;line-height:30px;font-weight:700;text-wrap:pretty">Danke! {{ rCount }} Weiterbildungen passen zu deinen Antworten.</h1>
+        <p style="margin:8px 0 0;font-size:17px;line-height:26px;color:#4A5B6D">Dafür brauchst du keine Kontaktdaten anzugeben.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px">
+          <sc-for list="{{ rCourses }}" as="c" hint-placeholder-count="3">
+            <div style="border:1px solid #D3DBE3;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px">
+              <span style="font-size:17px;line-height:24px;font-weight:700">{{ c.title }}</span>
+              <span style="font-size:15px;line-height:22px;color:#4A5B6D">{{ c.meta }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+    <div style="flex:none;padding:12px 20px 28px;border-top:1px solid #D3DBE3;display:flex;flex-direction:column;gap:4px">
+      <sc-if value="{{ kNotDone }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ kNext }}" style="width:100%;height:56px;border-radius:12px;border:none;background:{{ kNextBg }};color:{{ kNextColor }};font-size:17px;font-weight:700;cursor:pointer">{{ kNextLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ kDone }}">
+        <a href="#ergebnis" style="height:56px;border-radius:12px;background:#011F3C;color:#FFFFFF;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none">Ergebnisse ansehen</a>
+        <button onClick="{{ kRestart }}" style="height:48px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;cursor:pointer">Noch mal von vorn</button>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="chat" data-screen-label="03 Vorab-Chat" style="display:flex;gap:56px;align-items:flex-start">
+  <div style="width:320px;flex:none;display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-size:32px;line-height:40px;font-weight:700">3 · Vorab-Chat</h2>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Antwortvorschläge zum Antippen, selbst schreiben geht auch, ist aber nicht nötig (Stimme 11). Die KI sagt offen, dass sie eine KI ist, und sagt keinen Bildungsgutschein zu (Stimme 8).</p>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Kein Wechsel zu einem Menschen im Chat. Das Gespräch endet auf der gemeinsamen Ergebnisseite. Dort entscheidet die Person selbst, ob und zu welchem Kurs sie eine Beratung möchte.</p>
+    <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D">Links: Gespräch von Anfang an, klickbar. Rechts: Übergang zur Ergebnisseite.</p>
+  </div>
+  <div style="display:flex;gap:40px;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span style="font-size:15px;color:#4A5B6D">B1 · Gespräch und Empfehlung</span>
+      <div data-screen-label="B1 Chat" style="width:390px;height:844px;background:#FFFFFF;border-radius:40px;border:1px solid #C9D2DB;overflow:hidden;display:flex;flex-direction:column">
+        <div style="height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:15px;font-weight:700"><span>9:41</span><span style="width:22px;height:10px;border:1.5px solid #011F3C;border-radius:3px"></span></div>
+        <div style="flex:none;display:flex;align-items:center;gap:12px;padding:6px 20px 12px;border-bottom:1px solid #D3DBE3">
+          <div style="width:40px;height:40px;flex:none;border-radius:999px;background:#011F3C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">KI</div>
+          <div style="flex:1;min-width:0"><div style="font-size:17px;line-height:22px;font-weight:700">Kursfinder</div><div style="font-size:15px;line-height:20px;color:#4A5B6D">KI-Assistent · antwortet sofort</div></div>
+          <button style="height:48px;padding:0 4px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;cursor:pointer">Schließen</button>
+        </div>
+        <div ref="{{ ca.ref }}" style="flex:1;overflow:auto;padding:16px 20px 8px;display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ ca.msgs }}" as="m" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;align-items:{{ m.align }};gap:6px">
+              <sc-if value="{{ m.showAuthor }}"><div style="font-size:15px;line-height:20px;color:#4A5B6D;margin-top:4px">{{ m.author }}</div></sc-if>
+              <sc-if value="{{ m.isBot }}"><div style="max-width:88%;background:#EFF3F7;border-radius:6px 20px 20px 20px;padding:12px 16px;font-size:17px;line-height:26px;text-wrap:pretty">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isTyping }}"><div style="background:#EFF3F7;border-radius:6px 20px 20px 20px;padding:12px 16px;font-size:17px;line-height:26px;color:#4A5B6D">schreibt …</div></sc-if>
+              <sc-if value="{{ m.isUser }}"><div style="max-width:80%;background:#011F3C;color:#FFFFFF;border-radius:20px 6px 20px 20px;padding:12px 16px;font-size:17px;line-height:26px">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isRec }}">
+                <div style="align-self:stretch;border:1px solid #D3DBE3;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;background:#FFFFFF">
+                  <div><div style="font-size:20px;line-height:26px;font-weight:700">{{ m.title }}</div><div style="font-size:15px;line-height:22px;color:#4A5B6D;margin-top:4px">{{ m.meta }}</div></div>
+                  <div style="font-size:17px;line-height:26px;text-wrap:pretty">{{ m.reason }}</div>
+                  <div style="border-top:1px solid #D3DBE3;padding-top:12px;display:flex;flex-direction:column;gap:10px">
+                    <div><div style="font-size:15px;line-height:22px;color:#4A5B6D">Voraussetzung</div><div style="font-size:17px;line-height:24px">{{ m.prereq }}</div></div>
+                    <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;width:10px;height:10px;margin-top:6px;border-radius:999px;background:#0B6E69"></span><span style="font-size:15px;line-height:22px">Grundsätzlich über den Bildungsgutschein förderbar.</span></div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ m.isSummary }}">
+                <div style="align-self:stretch;border:1px solid #D3DBE3;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;background:#FFFFFF">
+                  <div style="font-size:17px;line-height:24px;font-weight:700">Deine Ergebnisse</div>
+                  <sc-for list="{{ m.items }}" as="it" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;padding-bottom:10px;border-bottom:1px solid #D3DBE3"><span style="font-size:17px;line-height:24px;font-weight:700">{{ it.title }}</span><span style="font-size:15px;line-height:22px;color:#4A5B6D">{{ it.meta }}</span></div></sc-for>
+                  <a href="#ergebnis" style="height:52px;border-radius:12px;background:#011F3C;color:#FFFFFF;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none">Ergebnisse ansehen</a>
+                  <span style="font-size:15px;line-height:22px;color:#4A5B6D;text-wrap:pretty">Dort siehst du jeden Kurs im Detail und kannst ein kostenloses Gespräch anfragen.</span>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ ca.hasChips }}">
+          <div style="flex:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding:12px 20px 0">
+            <sc-for list="{{ ca.chips }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.onClick }}" style="min-height:48px;padding:10px 16px;border-radius:999px;border:1.5px solid #011F3C;background:{{ c.bg }};color:{{ c.color }};font-size:17px;line-height:22px;font-weight:700;cursor:pointer;text-align:left">{{ c.label }}</button></sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ ca.done }}">
+          <div style="flex:none;display:flex;justify-content:center;padding:4px 20px 0"><button onClick="{{ ca.restart }}" style="min-height:48px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;text-decoration:underline;cursor:pointer">Gespräch neu starten</button></div>
+        </sc-if>
+        <div style="flex:none;display:flex;gap:8px;padding:12px 20px 28px">
+          <input placeholder="Oder schreib selbst …" style="flex:1;min-width:0;height:52px;box-sizing:border-box;border-radius:12px;border:1px solid #4A5B6D;padding:0 16px;font-size:17px;color:#011F3C;background:#FFFFFF">
+          <button style="height:52px;padding:0 16px;border-radius:12px;border:none;background:#011F3C;color:#FFFFFF;font-size:17px;font-weight:700;cursor:pointer">Senden</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span style="font-size:15px;color:#4A5B6D">B2 · Übergang zur Ergebnisseite</span>
+      <div data-screen-label="B2 Übergang" style="width:390px;height:844px;background:#FFFFFF;border-radius:40px;border:1px solid #C9D2DB;overflow:hidden;display:flex;flex-direction:column">
+        <div style="height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:15px;font-weight:700"><span>9:41</span><span style="width:22px;height:10px;border:1.5px solid #011F3C;border-radius:3px"></span></div>
+        <div style="flex:none;display:flex;align-items:center;gap:12px;padding:6px 20px 12px;border-bottom:1px solid #D3DBE3">
+          <div style="width:40px;height:40px;flex:none;border-radius:999px;background:#011F3C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">KI</div>
+          <div style="flex:1;min-width:0"><div style="font-size:17px;line-height:22px;font-weight:700">Kursfinder</div><div style="font-size:15px;line-height:20px;color:#4A5B6D">KI-Assistent · antwortet sofort</div></div>
+          <button style="height:48px;padding:0 4px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;cursor:pointer">Schließen</button>
+        </div>
+        <div ref="{{ cb.ref }}" style="flex:1;overflow:auto;padding:16px 20px 8px;display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ cb.msgs }}" as="m" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;align-items:{{ m.align }};gap:6px">
+              <sc-if value="{{ m.showAuthor }}"><div style="font-size:15px;line-height:20px;color:#4A5B6D;margin-top:4px">{{ m.author }}</div></sc-if>
+              <sc-if value="{{ m.isBot }}"><div style="max-width:88%;background:#EFF3F7;border-radius:6px 20px 20px 20px;padding:12px 16px;font-size:17px;line-height:26px;text-wrap:pretty">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isTyping }}"><div style="background:#EFF3F7;border-radius:6px 20px 20px 20px;padding:12px 16px;font-size:17px;line-height:26px;color:#4A5B6D">schreibt …</div></sc-if>
+              <sc-if value="{{ m.isUser }}"><div style="max-width:80%;background:#011F3C;color:#FFFFFF;border-radius:20px 6px 20px 20px;padding:12px 16px;font-size:17px;line-height:26px">{{ m.text }}</div></sc-if>
+              <sc-if value="{{ m.isRec }}">
+                <div style="align-self:stretch;border:1px solid #D3DBE3;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;background:#FFFFFF">
+                  <div><div style="font-size:20px;line-height:26px;font-weight:700">{{ m.title }}</div><div style="font-size:15px;line-height:22px;color:#4A5B6D;margin-top:4px">{{ m.meta }}</div></div>
+                  <div style="font-size:17px;line-height:26px;text-wrap:pretty">{{ m.reason }}</div>
+                  <div style="border-top:1px solid #D3DBE3;padding-top:12px;display:flex;flex-direction:column;gap:10px">
+                    <div><div style="font-size:15px;line-height:22px;color:#4A5B6D">Voraussetzung</div><div style="font-size:17px;line-height:24px">{{ m.prereq }}</div></div>
+                    <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;width:10px;height:10px;margin-top:6px;border-radius:999px;background:#0B6E69"></span><span style="font-size:15px;line-height:22px">Grundsätzlich über den Bildungsgutschein förderbar.</span></div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ m.isSummary }}">
+                <div style="align-self:stretch;border:1px solid #D3DBE3;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;background:#FFFFFF">
+                  <div style="font-size:17px;line-height:24px;font-weight:700">Deine Ergebnisse</div>
+                  <sc-for list="{{ m.items }}" as="it" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;padding-bottom:10px;border-bottom:1px solid #D3DBE3"><span style="font-size:17px;line-height:24px;font-weight:700">{{ it.title }}</span><span style="font-size:15px;line-height:22px;color:#4A5B6D">{{ it.meta }}</span></div></sc-for>
+                  <a href="#ergebnis" style="height:52px;border-radius:12px;background:#011F3C;color:#FFFFFF;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none">Ergebnisse ansehen</a>
+                  <span style="font-size:15px;line-height:22px;color:#4A5B6D;text-wrap:pretty">Dort siehst du jeden Kurs im Detail und kannst ein kostenloses Gespräch anfragen.</span>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ cb.hasChips }}">
+          <div style="flex:none;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding:12px 20px 0">
+            <sc-for list="{{ cb.chips }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.onClick }}" style="min-height:48px;padding:10px 16px;border-radius:999px;border:1.5px solid #011F3C;background:{{ c.bg }};color:{{ c.color }};font-size:17px;line-height:22px;font-weight:700;cursor:pointer;text-align:left">{{ c.label }}</button></sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ cb.done }}">
+          <div style="flex:none;display:flex;justify-content:center;padding:4px 20px 0"><button onClick="{{ cb.restart }}" style="min-height:48px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;text-decoration:underline;cursor:pointer">Gespräch neu starten</button></div>
+        </sc-if>
+        <div style="flex:none;display:flex;gap:8px;padding:12px 20px 28px">
+          <input placeholder="Oder schreib selbst …" style="flex:1;min-width:0;height:52px;box-sizing:border-box;border-radius:12px;border:1px solid #4A5B6D;padding:0 16px;font-size:17px;color:#011F3C;background:#FFFFFF">
+          <button style="height:52px;padding:0 16px;border-radius:12px;border:none;background:#011F3C;color:#FFFFFF;font-size:17px;font-weight:700;cursor:pointer">Senden</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ergebnis" data-screen-label="04 Ergebnisseite" style="display:flex;gap:56px;align-items:flex-start">
+  <div style="width:320px;flex:none;display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-size:32px;line-height:40px;font-weight:700">4 · Ergebnisseite</h2>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Beide Wege enden hier. Die Kurse stehen erst eingeklappt da: Titel, Dauer, ein Satz, Förderung. So sind alle drei auf einen Blick vergleichbar.</p>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Aufgeklappt: warum der Kurs passt, Zeitaufwand, Voraussetzungen, Förderung (Stimmen 5, 7, 9). Jede Karte führt zur Beratung für genau diesen Kurs.</p>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Bei Data Analytics fragt die Karte Excel ab. Fehlt es, sagt sie das offen und bietet das Gespräch als nächsten Schritt an.</p>
+    <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D">Klickbar: Karten auf- und zuklappen, Excel-Frage, Anfrage mit Wunschkurs.</p>
+  </div>
+  <div data-screen-label="C Ergebnisse" style="width:390px;flex:none;background:#FFFFFF;border-radius:40px;border:1px solid #C9D2DB;overflow:hidden;display:flex;flex-direction:column">
+    <div style="height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:15px;font-weight:700"><span>9:41</span><span style="width:22px;height:10px;border:1.5px solid #011F3C;border-radius:3px"></span></div>
+    <div style="height:56px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid #D3DBE3">
+      <img src="https://cdn.prod.website-files.com/68975397b55e5d47f8c8fbd1/69026dfcd40e72ca7ddf68ec_velpTEC_logo_primaer_dunkel.svg" alt="velpTEC" style="height:17px;width:auto">
+      <button style="height:48px;padding:0 4px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;cursor:pointer">Schließen</button>
+    </div>
+    <div style="padding:28px 20px 8px;display:flex;flex-direction:column;gap:16px">
+      <h1 style="margin:0;font-size:28px;line-height:34px;font-weight:700;text-wrap:pretty">{{ rHeadline }}</h1>
+      <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Tippe auf einen Kurs, um mehr zu sehen. Offene Fragen klären wir gern mit dir im Gespräch.</p>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ rChips }}" as="c" hint-placeholder-count="3"><span style="background:#EFF3F7;border-radius:999px;padding:6px 12px;font-size:15px;line-height:20px">{{ c.label }}</span></sc-for>
+        </div>
+        <a href="#klick" style="align-self:flex-start;min-height:44px;display:flex;align-items:center;font-size:17px;font-weight:700">Antworten ändern</a>
+      </div>
+      <sc-if value="{{ rJobNote }}">
+        <div style="background:#FFF3DC;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:17px;line-height:24px;font-weight:700;color:#8A5300">Alle Kurse laufen in Vollzeit</span>
+          <span style="font-size:17px;line-height:26px;text-wrap:pretty">Neben einem Job ist das meist nicht machbar. In der Beratung klären wir, welche Wege es für dich gibt.</span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="padding:8px 20px 32px;display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ rCourses }}" as="c" hint-placeholder-count="3">
+        <article style="border:1px solid {{ c.border }};box-shadow:{{ c.ring }};border-radius:12px;overflow:hidden;background:#FFFFFF">
+          <button onClick="{{ c.toggle }}" style="width:100%;text-align:left;background:#FFFFFF;border:none;padding:18px 20px;display:flex;flex-direction:column;gap:6px;cursor:pointer;color:#011F3C">
+            <span style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;width:100%">
+              <span style="font-size:20px;line-height:26px;font-weight:700;text-wrap:pretty">{{ c.title }}</span>
+              <span style="flex:none;width:32px;height:32px;box-sizing:border-box;border-radius:999px;border:1.5px solid #D3DBE3;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1">{{ c.sign }}</span>
+            </span>
+            <span style="font-size:15px;line-height:22px;color:#4A5B6D">{{ c.meta }}</span>
+            <span style="font-size:17px;line-height:26px;text-wrap:pretty">{{ c.short }}</span>
+            <span style="display:flex;gap:10px;align-items:flex-start;margin-top:4px"><span style="flex:none;width:10px;height:10px;margin-top:6px;border-radius:999px;background:{{ c.fDot }}"></span><span style="font-size:15px;line-height:22px">{{ c.fShort }}</span></span>
+            <sc-if value="{{ c.gap }}"><span style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;width:10px;height:10px;margin-top:6px;border-radius:999px;background:#8A5300"></span><span style="font-size:15px;line-height:22px;font-weight:700;color:#8A5300">Eine Voraussetzung fehlt dir noch</span></span></sc-if>
+          </button>
+          <sc-if value="{{ c.open }}">
+            <div style="padding:0 20px 20px;display:flex;flex-direction:column;gap:16px">
+              <div style="border-top:1px solid #D3DBE3;padding-top:16px;display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:17px;line-height:24px;font-weight:700">Warum das passt</span>
+                <span style="font-size:17px;line-height:26px;text-wrap:pretty">{{ c.reason }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;line-height:22px;color:#4A5B6D">Zeitaufwand</span><span style="font-size:17px;line-height:26px;text-wrap:pretty">Vollzeit, montags bis freitags. Jeden Tag Live-Sessions mit der Gruppe, dazwischen lernst du selbst.</span></div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;line-height:22px;color:#4A5B6D">Voraussetzungen</span><span style="font-size:17px;line-height:26px;text-wrap:pretty">{{ c.prereq }}</span></div>
+                <sc-if value="{{ c.hasCheck }}">
+                  <div style="background:#EFF3F7;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+                    <span style="font-size:17px;line-height:24px;font-weight:700">Hast du schon mit Excel gearbeitet?</span>
+                    <div style="display:flex;gap:8px">
+                      <sc-for list="{{ c.checkOpts }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.onClick }}" style="min-height:48px;padding:10px 18px;border-radius:999px;border:1px solid {{ o.border }};box-shadow:{{ o.ring }};background:#FFFFFF;color:#011F3C;font-size:17px;font-weight:700;cursor:pointer">{{ o.label }}</button></sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ c.gap }}">
+                  <div style="background:#FFF3DC;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">
+                    <span style="font-size:17px;line-height:24px;font-weight:700;color:#8A5300">Excel fehlt dir noch</span>
+                    <span style="font-size:17px;line-height:26px;text-wrap:pretty">Ohne Excel-Grundlagen wird der Kurs schwer. Das schließt dich aber nicht aus. In der Beratung schauen wir, wie du sie vor dem Start lernen kannst oder ob ein anderer Kurs besser passt.</span>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ c.ok }}"><span style="font-size:17px;line-height:24px;font-weight:700;color:#0B6E69">✓ Dann bringst du mit, was du brauchst.</span></sc-if>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:15px;line-height:22px;color:#4A5B6D">Förderung</span>
+                <span style="display:flex;gap:10px;align-items:flex-start"><span style="flex:none;width:10px;height:10px;margin-top:8px;border-radius:999px;background:{{ c.fDot }}"></span><span style="font-size:17px;line-height:26px;text-wrap:pretty">{{ c.fText }}</span></span>
+              </div>
+              <a href="#beratung" onClick="{{ c.consult }}" style="height:52px;border-radius:12px;border:1.5px solid #011F3C;color:#011F3C;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center;text-decoration:none">Beratung zu diesem Kurs</a>
+            </div>
+          </sc-if>
+        </article>
+      </sc-for>
+    </div>
+    <div id="beratung" style="border-top:1px solid #D3DBE3;padding:32px 20px 36px;display:flex;flex-direction:column;gap:20px;background:#FFFFFF">
+      <sc-if value="{{ rNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <h2 style="margin:0;font-size:24px;line-height:30px;font-weight:700;text-wrap:pretty">Möchtest du mit jemandem darüber sprechen?</h2>
+          <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Kostenlos und unverbindlich. Wir klären mit dir, welcher Kurs passt, wie er in deinen Alltag passt und wie du die Förderung beantragst.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:17px;line-height:24px;font-weight:700">Welcher Kurs interessiert dich am meisten?</span>
+          <sc-for list="{{ rPref }}" as="p" hint-placeholder-count="4">
+            <button onClick="{{ p.onClick }}" style="min-height:52px;width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;text-align:left;border-radius:12px;border:1px solid {{ p.border }};box-shadow:{{ p.ring }};background:{{ p.bg }};color:#011F3C;cursor:pointer">
+              <span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:999px;border:{{ p.indW }} solid {{ p.indBorder }};background:#FFFFFF"></span>
+              <span style="font-size:17px;line-height:24px;font-weight:700">{{ p.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;line-height:24px;font-weight:700">Dein Vorname</span><input placeholder="z. B. Sabine" style="height:52px;box-sizing:border-box;border-radius:8px;border:1px solid #4A5B6D;padding:0 16px;font-size:17px;color:#011F3C"></label>
+        <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:17px;line-height:24px;font-weight:700">Telefonnummer</span><input placeholder="z. B. 0151 2345 6789" style="height:52px;box-sizing:border-box;border-radius:8px;border:1px solid #4A5B6D;padding:0 16px;font-size:17px;color:#011F3C"></label>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:17px;line-height:24px;font-weight:700">Wann erreichen wir dich am besten?</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ rWhen }}" as="w" hint-placeholder-count="3"><button onClick="{{ w.onClick }}" style="min-height:48px;padding:10px 16px;border-radius:999px;border:1px solid {{ w.border }};box-shadow:{{ w.ring }};background:{{ w.bg }};color:#011F3C;font-size:17px;font-weight:700;cursor:pointer">{{ w.label }}</button></sc-for>
+          </div>
+        </div>
+        <button onClick="{{ rToggleConsent }}" style="display:flex;gap:12px;align-items:flex-start;min-height:48px;background:none;border:none;padding:4px 0;text-align:left;color:#011F3C;cursor:pointer">
+          <span style="flex:none;margin-top:1px;width:24px;height:24px;box-sizing:border-box;border-radius:6px;border:1.5px solid {{ rConsentBorder }};background:{{ rConsentBg }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">{{ rConsentMark }}</span>
+          <span style="font-size:17px;line-height:26px">Die Beratung darf meine Antworten aus dem Kursfinder sehen. Dann muss ich nichts doppelt erzählen.</span>
+        </button>
+        <button onClick="{{ rSend }}" style="height:56px;border-radius:12px;border:none;background:#011F3C;color:#FFFFFF;font-size:17px;font-weight:700;cursor:pointer">Beratung anfragen</button>
+        <span style="font-size:15px;line-height:22px;color:#4A5B6D;text-align:center">Wir melden uns meist noch am selben Tag.</span>
+      </sc-if>
+      <sc-if value="{{ rSent }}">
+        <div style="background:#E4F1EF;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:20px;line-height:26px;font-weight:700;color:#0B6E69">Danke, deine Anfrage ist da.</span>
+          <span style="font-size:17px;line-height:26px;text-wrap:pretty">{{ rSentText }}</span>
+        </div>
+        <button onClick="{{ rReset }}" style="min-height:48px;background:none;border:none;font-size:17px;font-weight:700;color:#011F3C;text-decoration:underline;cursor:pointer">Anfrage zurücksetzen</button>
+      </sc-if>
+    </div>
+    <div style="padding:20px 20px 32px;background:#EFF3F7">
+      <p style="margin:0;font-size:15px;line-height:22px;color:#4A5B6D;text-wrap:pretty">Die Empfehlungen erstellt eine KI aus deinen Antworten und unserem Kurskatalog.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sales" data-screen-label="05 Das bekommt Sales" style="display:flex;flex-direction:column;gap:32px">
+  <div style="max-width:760px;display:flex;flex-direction:column;gap:12px">
+    <h2 style="margin:0;font-size:32px;line-height:40px;font-weight:700">5 · Das bekommt Sales</h2>
+    <p style="margin:0;font-size:17px;line-height:26px;color:#4A5B6D;text-wrap:pretty">Oben stehen nur die drei Dinge aus Stimme 6: Situation, Wunschstart, Kontakt zur Agentur. In 30 Sekunden erfasst. Alles andere steht darunter: Wunschkurs, fehlende Voraussetzung, Fragen aus dem Chat, Kontakt. Wo der Wunsch vom ersten Eindruck abweicht, steht ein Hinweis (Stimme 12).</p>
+  </div>
+  <div data-screen-label="D Sales Desktop" style="width:1272px;background:#FFFFFF;border-radius:16px;border:1px solid #C9D2DB;overflow:hidden">
+    <div style="height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid #D3DBE3">
+      <div style="display:flex;align-items:center;gap:24px">
+        <img src="https://cdn.prod.website-files.com/68975397b55e5d47f8c8fbd1/69026dfcd40e72ca7ddf68ec_velpTEC_logo_primaer_dunkel.svg" alt="velpTEC" style="height:16px;width:auto">
+        <div style="display:flex;gap:4px">
+          <span style="padding:8px 12px;border-radius:8px;background:#EFF3F7;font-size:15px;font-weight:700">Anfragen</span>
+          <span style="padding:8px 12px;font-size:15px;color:#4A5B6D">Termine</span>
+          <span style="padding:8px 12px;font-size:15px;color:#4A5B6D">Kurskatalog</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px"><span style="font-size:15px">Sarah Kühn</span><span style="width:32px;height:32px;border-radius:999px;background:#0B6E69;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700">SK</span></div>
+    </div>
+    <div style="padding:28px 32px 32px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:24px">
+        <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+          <h1 style="margin:0;font-size:24px;line-height:30px;font-weight:700">Sabine Krause</h1>
+          <span style="font-size:15px;line-height:22px;color:#4A5B6D">Beratung angefragt · heute, 10:42 · Rückruf vormittags</span>
+        </div>
+        <div style="display:flex;gap:12px">
+          <button style="height:44px;padding:0 18px;border-radius:12px;border:1.5px solid #011F3C;background:#FFFFFF;color:#011F3C;font-size:15px;font-weight:700;cursor:pointer">Chatverlauf öffnen</button>
+          <button style="height:44px;padding:0 18px;border-radius:12px;border:none;background:#011F3C;color:#FFFFFF;font-size:15px;font-weight:700;cursor:pointer">Sabine anrufen</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+        <div style="border:1px solid #D3DBE3;border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;line-height:22px;color:#4A5B6D">Situation</span><span style="font-size:26px;line-height:32px;font-weight:700">Sucht Arbeit seit Juli</span><span style="font-size:15px;line-height:22px;color:#4A5B6D">vorher 15 Jahre Einzelhandel</span></div>
+        <div style="border:1px solid #D3DBE3;border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;line-height:22px;color:#4A5B6D">Wunschstart</span><span style="font-size:26px;line-height:32px;font-weight:700">So bald wie möglich</span><span style="font-size:15px;line-height:22px;color:#4A5B6D">nächster Kursstart: Montag, 5. Oktober</span></div>
+        <div style="border:1px solid #D3DBE3;border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;line-height:22px;color:#4A5B6D">Kontakt zur Agentur</span><span style="font-size:26px;line-height:32px;font-weight:700">Termin am 8. Oktober</span><span style="font-size:15px;line-height:22px;color:#4A5B6D">Weiterbildung dort noch nicht angesprochen</span></div>
+      </div>
+      <div style="height:1px;background:#D3DBE3;margin:8px 0"></div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:32px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <h2 style="margin:0;font-size:17px;line-height:24px;font-weight:700">Empfehlungen und Wunschkurs</h2>
+            <div style="border:1px solid #D3DBE3;border-radius:12px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:64px minmax(0,1.4fr) 88px minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:10px 16px;background:#EFF3F7;font-size:14px;color:#4A5B6D"><span>ID</span><span>Weiterbildung</span><span>Dauer</span><span>Voraussetzung</span><span>Warum empfohlen</span></div>
+              <div style="display:grid;grid-template-columns:64px minmax(0,1.4fr) 88px minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:12px 16px;border-top:1px solid #D3DBE3;font-size:15px;line-height:22px"><span style="color:#4A5B6D">DA-02</span><span style="font-weight:700">Data Analytics mit Python · Wunschkurs</span><span>16 Wochen</span><span style="color:#8A5300;font-weight:700">Excel fehlt</span><span>Arbeitet gern mit Zahlen, kennt Umsatzlisten aus der Filiale</span></div>
+              <div style="display:grid;grid-template-columns:64px minmax(0,1.4fr) 88px minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:12px 16px;border-top:1px solid #D3DBE3;font-size:15px;line-height:22px"><span style="color:#4A5B6D">KI-01</span><span style="font-weight:700">KI-Management und Prompt Engineering</span><span>12 Wochen</span><span style="color:#011F3C;font-weight:400">erfüllt</span><span>Ohne Vorkenntnisse möglich</span></div>
+              <div style="display:grid;grid-template-columns:64px minmax(0,1.4fr) 88px minmax(0,1fr) minmax(0,1.4fr);gap:16px;padding:12px 16px;border-top:1px solid #D3DBE3;font-size:15px;line-height:22px"><span style="color:#4A5B6D">OM-03</span><span style="font-weight:700">Online Marketing Management</span><span>12 Wochen</span><span style="color:#011F3C;font-weight:400">erfüllt</span><span>Erfahrung aus dem Verkauf</span></div>
+            </div>
+            <div style="background:#FFF3DC;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:2px">
+              <span style="font-size:15px;line-height:22px;font-weight:700;color:#8A5300">Im Gespräch nachfragen</span>
+              <span style="font-size:15px;line-height:22px">Sabine hat im Chat auch erzählt, dass sie gern Schichtpläne und Abläufe organisiert hat. Agiles Projektmanagement mit Scrum (PM-04, 8 Wochen) könnte ebenfalls passen.</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <h2 style="margin:0;font-size:17px;line-height:24px;font-weight:700">Sabines Fragen aus dem Vorab-Chat</h2>
+            <div style="display:flex;flex-direction:column;border-top:1px solid #D3DBE3">
+              <div style="padding:12px 0;border-bottom:1px solid #D3DBE3;font-size:15px;line-height:22px">„Kann ich so etwas wie Data Analytics überhaupt schaffen? Ich habe nicht studiert.“</div>
+              <div style="padding:12px 0;border-bottom:1px solid #D3DBE3;font-size:15px;line-height:22px">„Meine Kinder sind 8 und 11. Geht Vollzeit da überhaupt?“</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="border:1px solid #D3DBE3;border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+            <h2 style="margin:0;font-size:17px;line-height:24px;font-weight:700">Fürs Gespräch</h2>
+            <sc-for list="{{ sTodos }}" as="t" hint-placeholder-count="3">
+              <button onClick="{{ t.onClick }}" style="display:flex;gap:10px;align-items:flex-start;background:none;border:none;padding:0;text-align:left;color:#011F3C;cursor:pointer;min-height:24px">
+                <span style="flex:none;width:20px;height:20px;box-sizing:border-box;margin-top:1px;border-radius:5px;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">{{ t.mark }}</span>
+                <span style="font-size:15px;line-height:22px">{{ t.label }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="background:#EFF3F7;border-radius:12px;padding:16px 20px;display:flex;flex-direction:column;gap:4px">
+            <span style="font-size:15px;line-height:22px;font-weight:700">Vom Kursfinder nicht bewertet</span>
+            <span style="font-size:15px;line-height:22px">Ob Sabine einen Bildungsgutschein bekommt. Das entscheidet die Arbeitsagentur. Der Kursfinder hat nichts zugesagt.</span>
+          </div>
+          <div style="border-top:1px solid #D3DBE3;padding-top:14px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px;line-height:22px">
+            <span style="color:#4A5B6D">Telefon</span><span>0151 2345 6789</span>
+            <span style="color:#4A5B6D">Rückruf</span><span>vormittags</span>
+            <span style="color:#4A5B6D">Familie</span><span>zwei Kinder, 8 und 11</span>
+            <span style="color:#4A5B6D">Einwilligung</span><span>27.09.2026, 10:42, auf der Ergebnisseite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;typing&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Chat&quot;},&quot;q1Layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Kacheln&quot;,&quot;Liste&quot;],&quot;default&quot;:&quot;Kacheln&quot;,&quot;tsType&quot;:&quot;'Kacheln'|'Liste'&quot;,&quot;section&quot;:&quot;Klickfinder&quot;},&quot;showHints&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Klickfinder&quot;}}">
+class Component extends DCLogic {
+  state = {
+    k: { step: 0, ans: [['daten', 'ki', 'marketing'], 'suche', '1-3', 'nein'], done: false },
+    chats: { a: [], b: [0, 0, 0, 0, 'end'] },
+    pending: { a: false, b: false },
+    open: { 'DA-02': true },
+    excel: 'nein',
+    form: { when: 'vormittags', consent: true, sent: false, pref: 'DA-02' },
+    todos: [false, false, false]
+  };
+  refA = React.createRef();
+  refB = React.createRef();
+
+  courses = {
+    'KI-01': { title: 'KI-Management und Prompt Engineering', weeks: 12, azav: true, short: 'KI-Werkzeuge wie Chatbots im Beruf gezielt einsetzen.', prereq: 'Keine Vorkenntnisse. Du solltest sicher mit dem PC umgehen können.', reason: 'Du lernst, KI-Werkzeuge wie Chatbots im Beruf gezielt einzusetzen. Das wird in fast jeder Branche gebraucht.' },
+    'DA-02': { title: 'Data Analytics mit Python', weeks: 16, azav: true, check: true, short: 'Daten auswerten und Muster darin finden.', prereq: 'Grundlagen in Excel und Interesse an Zahlen. Programmieren lernst du im Kurs.', reason: 'Du wertest Daten aus, zum Beispiel Umsätze oder Lagerbestände, und findest darin Muster. Ein guter Weg, wenn du gern mit Zahlen arbeitest.' },
+    'OM-03': { title: 'Online Marketing Management', weeks: 12, azav: true, short: 'Online Kundschaft gewinnen, mit Anzeigen und Social Media.', prereq: 'Keine Vorkenntnisse nötig.', reason: 'Du lernst, wie Firmen online Kundschaft gewinnen: mit Anzeigen, Social Media und Newslettern. Erfahrung aus dem Verkauf hilft dir dabei.' },
+    'PM-04': { title: 'Agiles Projektmanagement mit Scrum', weeks: 8, azav: true, short: 'Projekte und Teams organisieren.', prereq: 'Erste Berufserfahrung in einem Team.', reason: 'Du lernst, Projekte und Teams so zu organisieren, dass alle wissen, was als Nächstes kommt. Mit 8 Wochen ist der Kurs vergleichsweise kurz.' },
+    'WE-05': { title: 'Webentwicklung mit React', weeks: 20, azav: true, short: 'Eigene Websites und Web-Apps bauen.', prereq: 'Logisches Denken. Erste HTML-Kenntnisse helfen, sind aber kein Muss.', reason: 'Du baust eigene Websites und Web-Apps. Mit 20 Wochen ist der Kurs lang und fordernd, dafür lernst du ein gefragtes Handwerk.' },
+    'IT-06': { title: 'IT-Security Grundlagen', weeks: 10, azav: false, short: 'Computer und Netzwerke vor Angriffen schützen.', prereq: 'IT-Grundkenntnisse, zum Beispiel wie ein Netzwerk funktioniert.', reason: 'Du lernst, wie man Computer, Daten und Netzwerke vor Angriffen schützt.' }
+  };
+  F_YES = 'Grundsätzlich über den Bildungsgutschein förderbar. Ob du ihn bekommst, entscheidet die Arbeitsagentur oder das Jobcenter.';
+  F_NO = 'Nicht über den Bildungsgutschein förderbar.';
+
+  questions = [
+    { title: 'Was interessiert dich?', sub: 'Du kannst mehrere wählen.', multi: true, opts: [
+      { id: 'ki', label: 'KI im Arbeitsalltag', hint: 'Chatbots und KI-Werkzeuge nutzen', course: 'KI-01' },
+      { id: 'daten', label: 'Daten und Zahlen', hint: 'Auswerten und Muster finden', course: 'DA-02' },
+      { id: 'marketing', label: 'Online-Marketing', hint: 'Werbung, Social Media, Newsletter', course: 'OM-03' },
+      { id: 'projekte', label: 'Projekte organisieren', hint: 'Teams und Abläufe planen', course: 'PM-04' },
+      { id: 'web', label: 'Websites bauen', hint: 'Programmieren lernen', course: 'WE-05' },
+      { id: 'security', label: 'IT-Sicherheit', hint: 'Computer und Netze schützen', course: 'IT-06' },
+      { id: 'offen', label: 'Weiß ich noch nicht', hint: 'Wir zeigen dir Kurse ohne Vorkenntnisse', full: true }
+    ] },
+    { title: 'Was machst du gerade beruflich?', sub: 'So können wir besser einschätzen, was zu dir passt.', opts: [
+      { id: 'suche', label: 'Ich suche gerade Arbeit' },
+      { id: 'job', label: 'Ich arbeite und möchte wechseln' },
+      { id: 'pause', label: 'Ich komme nach einer Pause zurück', hint: 'zum Beispiel nach Elternzeit oder Krankheit' },
+      { id: 'anders', label: 'Etwas anderes' }
+    ] },
+    { title: 'Wann möchtest du anfangen?', sub: 'Die Kurse starten jeden Montag.', opts: [
+      { id: 'asap', label: 'So bald wie möglich' },
+      { id: '1-3', label: 'In 1 bis 3 Monaten' },
+      { id: 'spaeter', label: 'Später' },
+      { id: 'unklar', label: 'Weiß ich noch nicht' }
+    ] },
+    { title: 'Hast du schon mit der Agentur für Arbeit oder dem Jobcenter gesprochen?', sub: 'Das ist keine Voraussetzung. Es hilft uns bei der Frage nach Förderung.', opts: [
+      { id: 'ja-wb', label: 'Ja, auch über eine Weiterbildung' },
+      { id: 'ja', label: 'Ja, aber nicht über Weiterbildung' },
+      { id: 'nein', label: 'Nein, noch nicht' },
+      { id: 'unklar', label: 'Ich weiß nicht, wozu das gut ist' }
+    ] }
+  ];
+
+  componentDidMount() { this.scrollChats(); }
+  componentDidUpdate() { this.scrollChats(); }
+  componentWillUnmount() { clearTimeout(this.tA); clearTimeout(this.tB); }
+  scrollChats() { [this.refA, this.refB].forEach(r => { if (r.current) r.current.scrollTop = r.current.scrollHeight; }); }
+
+  setK(patch) { this.setState(s => ({ k: { ...s.k, ...patch } })); }
+  setForm(p) { this.setState(s => ({ form: { ...s.form, ...p } })); }
+  kPick(id) {
+    const k = this.state.k, q = this.questions[k.step], ans = k.ans.slice();
+    if (q.multi) {
+      let cur = ans[k.step];
+      if (id === 'offen') cur = cur.includes('offen') ? [] : ['offen'];
+      else cur = cur.includes(id) ? cur.filter(x => x !== id) : cur.filter(x => x !== 'offen').concat(id);
+      ans[k.step] = cur;
+    } else ans[k.step] = id;
+    this.setK({ ans });
+  }
+  canNext() { const k = this.state.k, a = k.ans[k.step]; return Array.isArray(a) ? a.length > 0 : !!a; }
+
+  resultIds() {
+    const sel = this.state.k.ans[0];
+    let ids = sel.includes('offen') ? [] : this.questions[0].opts.filter(o => sel.includes(o.id) && o.course).map(o => o.course);
+    ids = ids.slice(0, 3);
+    const fill = ['KI-01', 'OM-03', 'PM-04'].filter(x => !ids.includes(x));
+    const target = ids.length === 0 ? 3 : 2;
+    const fillers = [];
+    while (ids.length + fillers.length < target && fill.length) fillers.push(fill.shift());
+    return ids.map(id => ({ id, filler: false })).concat(fillers.map(id => ({ id, filler: true })));
+  }
+
+  build(path) {
+    const C0 = ['Ich will mich beruflich neu orientieren', 'Ich will wissen, ob das gefördert wird', 'Ich schau mich erst mal um'];
+    const C1 = ['Einzelhandel', 'Büro und Verwaltung', 'Lager und Logistik'];
+    const JP = ['Im Einzelhandel', 'In Büro und Verwaltung', 'In Lager und Logistik'];
+    const C2 = ['Mit Zahlen arbeiten', 'Abläufe organisieren', 'Mit Menschen sprechen'];
+    const REC = ['DA-02', 'PM-04', 'OM-03'];
+    const MORE = { 'DA-02': ['KI-01', 'OM-03'], 'PM-04': ['KI-01', 'OM-03'], 'OM-03': ['KI-01', 'PM-04'] };
+    const C3 = ['Schaffe ich das?', 'Wird das gefördert?', 'Wie sieht ein Kurstag aus?'];
+    const KI = 'Kursfinder (KI)';
+    const m = []; let lastUser = -1;
+    const bot = t => m.push({ kind: 'bot', author: KI, text: t });
+    const user = t => { m.push({ kind: 'user', text: t }); lastUser = m.length - 1; };
+    const out = (chips, done) => ({ msgs: m, chips, lastUser, done: !!done });
+    const opts = arr => arr.map((l, i) => ({ label: l, value: i }));
+    bot('Hallo! Ich helfe dir, eine Weiterbildung zu finden, die zu dir passt. Das dauert etwa drei Minuten.');
+    bot('Ich bin eine KI. Ich stelle dir ein paar kurze Fragen und zeige dir am Ende passende Kurse. Womit fangen wir an?');
+    if (path.length < 1) return out(opts(C0));
+    const c0 = path[0]; user(C0[c0]);
+    bot(['Gut, dass du hier bist. Damit ich dir passende Kurse zeigen kann: Was hast du bisher beruflich gemacht?', 'Das klären wir gleich mit. Damit ich dir passende Kurse zeigen kann: Was hast du bisher beruflich gemacht?', 'Gern, ganz ohne Verpflichtung. Was hast du bisher beruflich gemacht?'][c0]);
+    if (path.length < 2) return out(opts(C1));
+    const c1 = path[1]; user(C1[c1]);
+    bot('Danke. Was hat dir bei der Arbeit am meisten Freude gemacht?');
+    if (path.length < 3) return out(opts(C2));
+    const c2 = path[2]; user(C2[c2]);
+    const id = REC[c2], co = this.courses[id], jp = JP[c1];
+    const reason = [
+      jp + ' hast du oft mit Zahlen zu tun, zum Beispiel mit Umsätzen oder Beständen. Hier lernst du, solche Daten auszuwerten und Muster darin zu finden.',
+      jp + ' hast du gelernt, Abläufe zu planen und mit anderen abzustimmen. Hier lernst du, wie man damit ganze Projekte organisiert.',
+      jp + ' hattest du viel mit Menschen zu tun. Das hilft dir, wenn du lernst, online Kundschaft zu gewinnen.'
+    ][c2];
+    bot('Dann schau dir mal diese Weiterbildung an:');
+    m.push({ kind: 'rec', author: KI, title: co.title, meta: co.weeks + ' Wochen · Vollzeit online', reason, prereq: co.prereq });
+    bot('Was möchtest du dazu wissen?');
+    const must = { 'DA-02': 'Wichtig sind Grundlagen in Excel und Interesse an Zahlen. Wenn dir Excel noch fehlt, sag das ruhig. Dann schauen wir in der Beratung, wie du das vor dem Start aufholst.', 'PM-04': 'Wichtig ist etwas Erfahrung in der Arbeit mit einem Team. Die bringst du mit.', 'OM-03': 'Vorkenntnisse brauchst du keine. Wichtig ist, dass du Lust hast, Neues auszuprobieren.' }[id];
+    const ANS = [
+      'Das fragen sich viele. Ein Studium brauchst du dafür nicht. ' + must,
+      'Der Kurs ist grundsätzlich über den Bildungsgutschein förderbar. Ob du ihn bekommst, entscheidet die Arbeitsagentur oder das Jobcenter. Das kann ich dir nicht zusagen, die Beratung hilft dir aber beim Antrag.',
+      'Der Kurs läuft in Vollzeit online, montags bis freitags. Jeden Tag gibt es Live-Sessions mit der Gruppe, dazwischen lernst du selbst. Wie das mit deinem Alltag zusammenpasst, zum Beispiel mit Kindern, klärst du am besten in der Beratung.'
+    ];
+    const asked = [];
+    for (const v of path.slice(3)) {
+      if (v === 'end') {
+        user('Zeig mir meine Ergebnisse');
+        bot('Gern. Ich habe dir drei Weiterbildungen zusammengestellt. Die erste passt am besten zu dem, was du erzählt hast.');
+        m.push({ kind: 'summary', author: KI, items: [id].concat(MORE[id]).map(x => ({ title: this.courses[x].title, meta: this.courses[x].weeks + ' Wochen · Vollzeit online' })) });
+        return out([], true);
+      }
+      user(C3[v]); bot(ANS[v]); asked.push(v);
+    }
+    const chips = C3.map((l, i) => ({ label: l, value: i })).filter(c => !asked.includes(c.value));
+    return out(chips.concat([{ label: 'Zeig mir meine Ergebnisse', value: 'end', primary: true }]));
+  }
+
+  pick(key, value) {
+    if (this.state.pending[key]) return;
+    this.setState(s => ({ chats: { ...s.chats, [key]: s.chats[key].concat([value]) } }));
+    if (this.props.typing ?? true) {
+      this.setState(s => ({ pending: { ...s.pending, [key]: true } }));
+      const t = setTimeout(() => this.setState(s => ({ pending: { ...s.pending, [key]: false } })), 900);
+      if (key === 'a') this.tA = t; else this.tB = t;
+    }
+  }
+
+  chatVals(key, ref) {
+    const path = this.state.chats[key], pend = this.state.pending[key];
+    const b = this.build(path);
+    let msgs = b.msgs, chips = b.chips;
+    if (pend) { msgs = msgs.slice(0, b.lastUser + 1).concat([{ kind: 'typing', author: 'Kursfinder (KI)' }]); chips = []; }
+    let prev = null;
+    msgs = msgs.map(mm => {
+      let show = false;
+      if (mm.kind === 'bot' || mm.kind === 'typing') { show = mm.author !== prev; prev = mm.author; }
+      const card = mm.kind === 'rec' || mm.kind === 'summary';
+      return { ...mm, showAuthor: show, align: mm.kind === 'user' ? 'flex-end' : card ? 'stretch' : 'flex-start',
+        isBot: mm.kind === 'bot', isUser: mm.kind === 'user', isTyping: mm.kind === 'typing', isRec: mm.kind === 'rec', isSummary: mm.kind === 'summary' };
+    });
+    const chipV = chips.map(c => ({ label: c.label, bg: c.primary ? '#011F3C' : '#FFFFFF', color: c.primary ? '#FFFFFF' : '#011F3C', onClick: () => this.pick(key, c.value) }));
+    return {
+      msgs, chips: chipV, hasChips: chipV.length > 0, done: b.done && !pend, ref,
+      restart: () => this.setState(s => ({ chats: { ...s.chats, [key]: [] }, pending: { ...s.pending, [key]: false } }))
+    };
+  }
+
+  renderVals() {
+    const k = this.state.k, q = this.questions[k.step], a = k.ans[k.step];
+    const showHints = this.props.showHints ?? true;
+    const grid = k.step === 0 && (this.props.q1Layout ?? 'Kacheln') === 'Kacheln';
+    const kOpts = q.opts.map(o => {
+      const sel = q.multi ? a.includes(o.id) : a === o.id;
+      return {
+        label: o.label, hint: o.hint || '', hasHint: !!o.hint && (!q.multi || showHints),
+        span: o.full ? '1 / -1' : 'auto', minH: o.full ? '64px' : '104px',
+        border: sel ? '#011F3C' : '#D3DBE3', ring: sel ? 'inset 0 0 0 1px #011F3C' : 'none', bg: sel ? '#EFF3F7' : '#FFFFFF',
+        indBorder: sel ? '#011F3C' : '#4A5B6D', indBg: q.multi && sel ? '#011F3C' : '#FFFFFF', indMark: q.multi && sel ? '✓' : '',
+        indRadius: q.multi ? '6px' : '999px', indBorderW: !q.multi && sel ? '7px' : '1.5px',
+        onClick: () => this.kPick(o.id)
+      };
+    });
+    const can = this.canNext();
+    const ans = k.ans, Q = this.questions;
+    const label = (qi, id) => (Q[qi].opts.find(o => o.id === id) || {}).label;
+    const f = this.state.form;
+    const ring = sel => ({ border: sel ? '#011F3C' : '#D3DBE3', ring: sel ? 'inset 0 0 0 1px #011F3C' : 'none' });
+
+    const rCourses = this.resultIds().map(({ id, filler }) => {
+      const c = this.courses[id];
+      const open = !!this.state.open[id];
+      const gap = !!c.check && this.state.excel === 'nein';
+      const pref = f.pref === id;
+      return {
+        title: c.title, meta: c.weeks + ' Wochen · Vollzeit online', short: c.short, prereq: c.prereq,
+        reason: (filler ? 'Gut für den Einstieg, auch ohne Vorwissen. ' : '') + c.reason,
+        open, sign: open ? '−' : '+', border: pref && open ? '#011F3C' : '#D3DBE3', ring: 'none',
+        fDot: c.azav ? '#0B6E69' : '#4A5B6D', fShort: c.azav ? 'Grundsätzlich über den Bildungsgutschein förderbar.' : this.F_NO, fText: c.azav ? this.F_YES : this.F_NO,
+        hasCheck: !!c.check, gap, ok: !!c.check && this.state.excel === 'ja',
+        checkOpts: [['ja', 'Ja'], ['nein', 'Noch nicht']].map(([v, l]) => ({ label: l, ...ring(this.state.excel === v), onClick: () => this.setState({ excel: v }) })),
+        toggle: () => this.setState(s => ({ open: { ...s.open, [id]: !s.open[id] } })),
+        consult: () => this.setForm({ pref: id, sent: false }),
+        id
+      };
+    });
+    const intLabels = ans[0].map(id => label(0, id)).filter(Boolean);
+    const rChips = intLabels.concat([label(1, ans[1]), label(2, ans[2])]).filter(Boolean).map(l => ({ label: l }));
+    const rPref = rCourses.map(c => ({ id: c.id, label: c.title })).concat([{ id: 'offen', label: 'Weiß ich noch nicht' }]).map(p => {
+      const sel = f.pref === p.id;
+      return { label: p.label, ...ring(sel), bg: sel ? '#EFF3F7' : '#FFFFFF', indW: sel ? '7px' : '1.5px', indBorder: sel ? '#011F3C' : '#4A5B6D', onClick: () => this.setForm({ pref: p.id }) };
+    });
+    const whenMap = { vormittags: 'am Vormittag', nachmittags: 'am Nachmittag', abends: 'am Abend' };
+    const rWhen = ['vormittags', 'nachmittags', 'abends'].map(w => {
+      const sel = f.when === w;
+      return { label: w[0].toUpperCase() + w.slice(1), ...ring(sel), bg: sel ? '#EFF3F7' : '#FFFFFF', onClick: () => this.setForm({ when: w }) };
+    });
+    const prefC = this.courses[f.pref];
+
+    const todoLabels = ['Excel-Lücke besprechen: vor dem Start aufholen oder KI-01 als Alternative', 'Kurstag erklären und Vollzeit mit Kindern (8 und 11) klären', 'Bildungsgutschein für den Termin am 8. Oktober vorbereiten'];
+    const sTodos = todoLabels.map((l, i) => {
+      const d = this.state.todos[i];
+      return { label: l, mark: d ? '✓' : '', bg: d ? '#011F3C' : '#FFFFFF', border: d ? '#011F3C' : '#4A5B6D', onClick: () => this.setState(s => { const t = s.todos.slice(); t[i] = !t[i]; return { todos: t }; }) };
+    });
+
+    return {
+      kQ: q, kOpts, kGrid: grid, kList: !grid, kDone: k.done, kNotDone: !k.done,
+      kStatus: k.done ? 'Fertig' : 'Frage ' + (k.step + 1) + ' von 4',
+      kProgress: [0, 1, 2, 3].map(i => ({ bg: k.done || i <= k.step ? '#011F3C' : '#D3DBE3' })),
+      kBackOpacity: k.step === 0 && !k.done ? '0.4' : '1',
+      kExplain: k.step === 3 && a === 'unklar',
+      kNextBg: can ? '#011F3C' : '#D3DBE3', kNextColor: can ? '#FFFFFF' : '#4A5B6D',
+      kNextLabel: k.step === 3 ? 'Ergebnisse zeigen' : 'Weiter',
+      kNext: () => { if (!this.canNext()) return; if (k.step < 3) this.setK({ step: k.step + 1 }); else this.setK({ done: true }); },
+      kBack: () => { if (k.done) this.setK({ done: false }); else if (k.step > 0) this.setK({ step: k.step - 1 }); },
+      kRestart: () => this.setK({ step: 0, done: false }),
+
+      rCourses, rCount: rCourses.length, rChips, rPref,
+      rHeadline: 'Diese ' + rCourses.length + ' Weiterbildungen passen zu dir',
+      rJobNote: ans[1] === 'job',
+      rWhen, rNotSent: !f.sent, rSent: f.sent,
+      rConsentBg: f.consent ? '#011F3C' : '#FFFFFF', rConsentBorder: f.consent ? '#011F3C' : '#4A5B6D', rConsentMark: f.consent ? '✓' : '',
+      rToggleConsent: () => this.setForm({ consent: !f.consent }),
+      rSend: () => this.setForm({ sent: true }),
+      rReset: () => this.setForm({ sent: false }),
+      rSentText: 'Wir rufen dich ' + whenMap[f.when] + ' an, meist noch heute' + (prefC ? ', und sprechen über ' + prefC.title : '') + '. ' + (f.consent ? 'Deine Beraterin kennt deine Antworten schon, du musst nichts doppelt erzählen.' : 'Deine Antworten aus dem Kursfinder geben wir nicht weiter.'),
+
+      ca: this.chatVals('a', this.refA),
+      cb: this.chatVals('b', this.refB),
+      sTodos
+    };
+  }
+}
+</script>
+</body>
+</html>
