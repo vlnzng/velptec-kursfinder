@@ -38,8 +38,12 @@ export function match(p: Profile): MatchResult {
     notes.push("Wenn du noch unsicher bist, finden wir es im Beratungsgespräch gemeinsam heraus.");
   } else {
     const main = COURSES.find((c) => c.interest === p.interest)!;
-    const alternatives = COURSES.filter((c) => c !== main && meets(p, c)).slice(0, 2);
-    picked = [main, ...alternatives];
+    // Alternativen: zuerst Kurse, deren Voraussetzung die Person ausdrücklich mitbringt.
+    // Nur wenn es keine gibt, Kurse ohne feste Voraussetzung.
+    const others = COURSES.filter((c) => c !== main);
+    const builtOn = others.filter((c) => c.requires && p.experience.includes(c.requires));
+    const open = others.filter((c) => !c.requires);
+    picked = [main, ...(builtOn.length ? builtOn : open).slice(0, 2)];
   }
 
   if (p.fullTime === "eher-nicht") {
@@ -65,7 +69,6 @@ const HAS_SENTENCE: Record<string, string> = {
   excel: "Du bringst Excel-Grundlagen mit. Genau darauf baut dieser Kurs auf.",
   team: "Du hast schon im Team gearbeitet. Genau darauf baut dieser Kurs auf.",
   it: "Du bringst IT-Grundkenntnisse mit. Genau darauf baut dieser Kurs auf.",
-  html: "Deine ersten HTML-Kenntnisse helfen dir beim Einstieg.",
 };
 
 /** Simulierte KI-Begründung. Bezieht sich sichtbar auf die Angaben der Person. */
@@ -75,15 +78,18 @@ export function explain(p: Profile, c: Course): string {
       ? INTEREST_SENTENCE[c.interest]
       : p.interest === "unklar"
         ? "Du weißt noch nicht genau, wohin es gehen soll. Dieser Kurs ist ein guter Einstieg."
-        : "Das ist eine weitere Möglichkeit für dich.";
+        : `Eine weitere Richtung: ${c.short}`;
 
   let second: string;
   if (c.requires && !p.experience.includes(c.requires)) {
     second = `Dafür brauchst du ${NEEDS[c.requires]}. Das hast du noch nicht angegeben.`;
   } else if (c.requires) {
     second = HAS_SENTENCE[c.requires];
-  } else if (c.helps && p.experience.includes(c.helps)) {
-    second = HAS_SENTENCE[c.helps];
+  } else if (c.helps) {
+    // WE-05: logisches Denken zählt, HTML hilft, ist aber kein Muss.
+    second = p.experience.includes(c.helps)
+      ? "Deine ersten HTML-Kenntnisse helfen dir beim Einstieg. Wichtig ist außerdem logisches Denken."
+      : "Wichtig ist logisches Denken. Erste HTML-Kenntnisse helfen, sind aber kein Muss.";
   } else {
     second = "Vorkenntnisse brauchst du dafür keine.";
   }

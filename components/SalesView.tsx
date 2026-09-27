@@ -31,18 +31,18 @@ export function SalesView({
   return (
     <div className="flex flex-col gap-6 px-5 pt-5 pb-10">
       <p className="rounded-xl bg-amber-tint px-4 py-3 text-sm">
-        <b className="text-amber">Demo-Ansicht.</b> So käme die Anfrage bei der Beratung an. Weg:{" "}
-        {chat ? "Vorab-Chat" : "Klickfinder"}.
+        <b className="text-amber">Demo-Ansicht.</b> So käme die Anfrage bei der Beratung an.
       </p>
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-xl font-bold">{req.sent ? req.name : "Noch keine Anfrage gesendet"}</h1>
-        {req.sent && (
-          <p className="text-sm text-slate">
-            {req.contact} · Einwilligung {req.consent ? "erteilt" : "nicht erteilt"} · Wunschkurs{" "}
-            {pref ? pref.title : "noch offen"}
-          </p>
-        )}
+        <h1 className="text-xl font-bold">
+          {req.sent ? req.name : `Anfrage aus dem ${chat ? "Vorab-Chat" : "Klickfinder"}`}
+        </h1>
+        <p className="text-sm text-slate">
+          {req.sent
+            ? `${req.contact} · Einwilligung ${req.consent ? "erteilt" : "nicht erteilt"} · Wunschkurs ${pref ? pref.title : "noch offen"}`
+            : "Name und Kontakt stehen hier, sobald die Person auf der Ergebnisseite eine Beratung anfragt."}
+        </p>
       </div>
 
       <div className="grid gap-3">
@@ -69,8 +69,10 @@ export function SalesView({
                 {m.course.weeks} Wochen ·{" "}
                 {m.missing ? (
                   <b className="text-amber">Voraussetzung fehlt: {m.missing}</b>
-                ) : (
+                ) : m.course.requires ? (
                   "Voraussetzung erfüllt"
+                ) : (
+                  "keine feste Voraussetzung"
                 )}
                 {!m.course.azav && " · nicht über Bildungsgutschein förderbar"}
               </span>

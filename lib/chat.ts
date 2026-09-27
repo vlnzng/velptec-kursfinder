@@ -27,13 +27,15 @@ export type ChatReply = {
 };
 
 type Field = keyof Profile;
+/** Was der Chat gerade fragt. null heißt: Profil vollständig. */
+type Step = Field | "opening" | "like" | "more" | null;
 const ORDER: Field[] = ["interest", "experience", "situation", "agencyContact", "startWish", "fullTime"];
 
 export const SHOW_RESULTS = "Zeig mir meine Ergebnisse";
 const QUESTIONS = ["Wird das gefördert?", "Schaffe ich das?", "Wie sieht ein Kurstag aus?"];
 
 const ASK: Record<Field, string> = {
-  interest: "Was möchtest du beruflich als Nächstes machen?",
+  interest: "In welche Richtung soll es gehen?",
   experience: "Was bringst du schon mit? Tipp an, was passt.",
   situation: "Wie ist deine Situation gerade?",
   agencyContact: "Hast du schon Kontakt zur Arbeitsagentur oder zum Jobcenter?",
@@ -41,6 +43,25 @@ const ASK: Record<Field, string> = {
   fullTime: "Alle Kurse laufen in Vollzeit online, montags bis freitags. Passt das für dich?",
 };
 const ASK_MORE = "Noch etwas davon?";
+
+// Eröffnung setzt bei der Person an, nicht bei den Kategorien. Die Richtung klärt die Nachfrage.
+const ASK_OPEN = "Was möchtest du beruflich als Nächstes machen?";
+const OPEN_NEW = "Ich will etwas ganz Neues machen";
+const OPEN_DIGITAL = "Ich will in meinem Beruf digitaler arbeiten";
+const OPEN_UNSURE = "Ich weiß noch nicht, was zu mir passt";
+const OPEN_FUNDING = "Ich habe eine Frage zur Förderung";
+
+// Wer noch unsicher ist, bekommt eine Frage nach dem, was er oder sie gern macht.
+const ASK_LIKE = "Was machst du gern?";
+const LIKE: [Profile["interest"], string][] = [
+  ["daten", "Mit Zahlen und Listen arbeiten"],
+  ["marketing", "Mit Menschen reden und überzeugen"],
+  ["projekte", "Abläufe und Teams organisieren"],
+  ["programmieren", "Tüfteln und Dinge bauen"],
+  ["ki", "Neue Technik ausprobieren"],
+  ["it-sicherheit", "Technik verstehen und absichern"],
+  ["unklar", "Weiß ich wirklich nicht"],
+];
 const NOTHING = "Nichts davon";
 const THATS_ALL = "Das war's";
 
@@ -114,28 +135,35 @@ function doubtAnswer(p: Partial<Profile>) {
   if (!c) {
     return "Das hängt vom Kurs ab. Für KI-Management und für Online Marketing brauchst du keine Fachkenntnisse. Alle Kurse laufen in Vollzeit und sind fordernd. Ob es für dich passt, klärst du am besten in der Beratung.";
   }
-  const status =
-    !c.requires || p.experience?.includes(c.requires)
+  // Nur harte Voraussetzungen lassen sich mit den Angaben abgleichen.
+  const status = !c.requires
+    ? ""
+    : p.experience?.includes(c.requires)
       ? "Das bringst du laut deinen Angaben mit."
       : p.experience === undefined
         ? "Was du mitbringst, frage ich dich gleich noch."
         : `Laut deinen Angaben fehlt dir noch ${NEEDS[c.requires]}. Das solltest du in der Beratung ansprechen.`;
-  return `Das hängt von den Voraussetzungen ab. Für ${c.title} gilt: ${c.prereq} ${status} Der Kurs läuft in Vollzeit und ist fordernd.`;
+  return [`Das hängt von den Voraussetzungen ab. Für ${c.title} gilt: ${c.prereq}`, status, "Der Kurs läuft in Vollzeit und ist fordernd."]
+    .filter(Boolean)
+    .join(" ");
 }
 
-/** Welche Frage gerade offen ist. null heißt: Profil vollständig. */
-function asking(p: Partial<Profile>, lastBot: string): Field | "more" | null {
+function asking(p: Partial<Profile>, lastBot: string): Step {
+  if (lastBot.endsWith(ASK_OPEN) && p.interest === undefined) return "opening";
+  if (lastBot.endsWith(ASK_LIKE)) return "like";
   if (lastBot.endsWith(ASK_MORE)) return "more";
   return ORDER.find((f) => p[f] === undefined) ?? null;
 }
 
-function questionFor(p: Partial<Profile>, field: Field | "more" | null, askedTexts: string[]) {
+function questionFor(p: Partial<Profile>, field: Step, askedTexts: string[]) {
   if (field === null) {
     return {
       message: "Das reicht mir. Ich habe passende Weiterbildungen für dich herausgesucht. Du kannst mir vorher noch Fragen stellen.",
       suggestions: [SHOW_RESULTS, ...QUESTIONS.filter((q) => !askedTexts.includes(q))],
     };
   }
+  if (field === "opening") return { message: ASK_OPEN, suggestions: [OPEN_NEW, OPEN_DIGITAL, OPEN_UNSURE, OPEN_FUNDING] };
+  if (field === "like") return { message: ASK_LIKE, suggestions: LIKE.map(([, l]) => l) };
   if (field === "more") {
     const rest = OPTIONS.experience.filter(([v]) => !p.experience?.includes(v as Experience)).map(([, l]) => l);
     return { message: ASK_MORE, suggestions: [THATS_ALL, ...rest] };
@@ -151,7 +179,7 @@ export function getChatReply(history: ChatMessage[], profile: Partial<Profile>):
   const lastBot = bots.at(-1)?.text ?? "";
 
   if (text === undefined) {
-    const q = questionFor(profile, "interest", users);
+    const q = questionFor(profile, "opening", users);
     return {
       ...q,
       message: `Hallo! Ich bin eine KI und helfe dir, eine Weiterbildung zu finden, die zu dir passt. Du kannst die Vorschläge antippen oder selbst schreiben. ${q.message}`,
@@ -164,28 +192,40 @@ export function getChatReply(history: ChatMessage[], profile: Partial<Profile>):
   const t = text.toLowerCase();
 
   // Antwort bauen: Profil ergänzen, dann nächste offene Frage stellen.
-  const reply = (update: Partial<Profile>, prefix: string, extra: Partial<ChatReply> = {}, more = false): ChatReply => {
+  const reply = (update: Partial<Profile>, prefix: string, extra: Partial<ChatReply> = {}, step?: Step): ChatReply => {
     const merged = { ...profile, ...update };
-    const next = more ? "more" : asking(merged, "");
+    const next = step ?? asking(merged, "");
     const q = questionFor(merged, next, users);
     if (field === null) q.message = "Noch eine Frage, oder soll ich dir die Ergebnisse zeigen?";
     return { message: `${prefix} ${q.message}`, suggestions: q.suggestions, profile: update, ready: next === null, ...extra };
   };
 
   // 1. Angetippter Vorschlag: fester Pfad.
-  if (field === "more") {
+  const funding = { handover: { reason: "Frage zur Förderung" } };
+  if (field === "opening") {
+    if (text === OPEN_NEW) return reply({}, "Spannend.");
+    if (text === OPEN_DIGITAL) return reply({}, "Gut, dafür gibt es mehrere Wege.");
+    if (text === OPEN_UNSURE) return reply({}, "Kein Problem, das geht vielen so.", {}, "like");
+    if (text === OPEN_FUNDING) {
+      return reply({}, `${FUNDING_ANSWER} Damit ich dir passende Kurse zeigen kann:`, { ...funding, openQuestions: [text] });
+    }
+  } else if (field === "like") {
+    const hit = LIKE.find(([, l]) => l === text);
+    if (hit) return reply({ interest: hit[0] }, hit[0] === "unklar" ? "Kein Problem." : "Dann schauen wir in diese Richtung.");
+  } else if (field === "more") {
     if (text === THATS_ALL) return reply({}, "Gut.");
     const hit = OPTIONS.experience.find(([, l]) => l === text);
     if (hit) {
       const experience = [...(profile.experience ?? []), hit[0] as Experience];
-      return reply({ experience }, "Notiert.", {}, experience.length < OPTIONS.experience.length);
+      return reply({ experience }, "Notiert.", {}, experience.length < OPTIONS.experience.length ? "more" : undefined);
     }
   } else if (field === "experience" && text === NOTHING) {
     return reply({ experience: [] }, "Kein Problem.");
   } else if (field) {
     const hit = OPTIONS[field].find(([, l]) => l === text);
     if (hit) {
-      if (field === "experience") return reply({ experience: [hit[0] as Experience] }, "Notiert.", {}, true);
+      if (field === "experience") return reply({ experience: [hit[0] as Experience] }, "Notiert.", {}, "more");
+      if (field === "interest" && hit[0] === "unklar") return reply({}, "Kein Problem, das geht vielen so.", {}, "like");
       return reply({ [field]: hit[0] } as Partial<Profile>, ACKS[users.length % ACKS.length]);
     }
   }
@@ -196,7 +236,7 @@ export function getChatReply(history: ChatMessage[], profile: Partial<Profile>):
     return reply({}, HUMAN_ANSWER, { handover: { reason: "Möchte mit einem Menschen sprechen" } });
   }
   if (FUNDING.test(t) || (AGENCY.test(t) && field !== "agencyContact")) {
-    return reply({}, FUNDING_ANSWER, { ...asked, handover: { reason: "Frage zur Förderung" } });
+    return reply({}, FUNDING_ANSWER, { ...asked, ...funding });
   }
   if (TIME.test(t)) {
     const update: Partial<Profile> = field === "fullTime" ? { fullTime: "eher-nicht" } : {};
@@ -209,8 +249,18 @@ export function getChatReply(history: ChatMessage[], profile: Partial<Profile>):
   if (field === null) {
     return reply({}, "Das kann ich dir nicht sicher beantworten. Das klärt am besten die Beratung.", questionMark);
   }
-  const key: Field = field === "more" ? "experience" : field;
+  const key: Field = field === "more" ? "experience" : field === "opening" || field === "like" ? "interest" : field;
   const found = KEYWORDS[key].filter(([, re]) => re.test(t)).map(([v]) => v);
+
+  // Eröffnung frei beantwortet, aber keine Richtung erkannt: nachfragen statt raten.
+  if (field === "interest" && !found.length && DONT_KNOW.test(t)) {
+    return reply({}, "Kein Problem, das geht vielen so.", questionMark, "like");
+  }
+  if (field === "opening" && !found.length) {
+    return DONT_KNOW.test(t)
+      ? reply({}, "Kein Problem, das geht vielen so.", questionMark, "like")
+      : reply({}, "Danke, dass du das erzählst.", questionMark);
+  }
   const unclear = "Das habe ich nicht sicher erkannt. Ich notiere es als offen, das klären wir in der Beratung.";
 
   if (key === "experience") {

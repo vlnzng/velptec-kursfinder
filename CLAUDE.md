@@ -66,7 +66,7 @@ type Profile = {
 Matching `match(profile)`, deterministisch:
 1. Hauptempfehlung ist der Kurs zum gewählten Interesse.
 2. Interesse „unklar": die Kurse ohne Vorkenntnisse (KI-01, OM-03), PM-04 zusätzlich bei Teamerfahrung, dazu der Hinweis „Wenn du noch unsicher bist, finden wir es im Beratungsgespräch gemeinsam heraus." Keine weitere Logik erfinden.
-3. Dazu bis zu zwei Alternativen, deren Voraussetzungen erfüllt sind. Höchstens drei Kurse.
+3. Dazu bis zu zwei Alternativen: zuerst Kurse, deren Voraussetzung die Person ausdrücklich mitbringt; nur wenn es keine gibt, Kurse ohne feste Voraussetzung. Höchstens drei Kurse. Die Begründung sagt, was der Kurs ist und worauf er bei der Person aufbaut.
 4. Voraussetzung nicht erfüllt: Kurs trotzdem zeigen, mit ehrlichem Hinweis, was vorher fehlt. Nicht ausblenden.
 5. IT-06 immer mit Hinweis „Nicht über den Bildungsgutschein förderbar".
 6. Vollzeit „eher nicht": Hinweis, dass alle Kurse in Vollzeit laufen, und Beratung anbieten.
@@ -98,7 +98,7 @@ type ChatReply = {
 ```
 
 Ablauf über feste Pfade:
-1. Eröffnung: „Was möchtest du beruflich als Nächstes machen?" mit Vorschlägen zu den Interessen plus „Weiß ich noch nicht"
+1. Eröffnung: „Was möchtest du beruflich als Nächstes machen?" mit Vorschlägen, die bei der Person ansetzen, nicht bei den Kategorien: „Ich will etwas ganz Neues machen", „Ich will in meinem Beruf digitaler arbeiten", „Ich weiß noch nicht, was zu mir passt", „Ich habe eine Frage zur Förderung". Die Richtung klärt eine Nachfrage. Wer unsicher ist, bekommt „Was machst du gern?" mit Tätigkeiten statt Kursthemen.
 2. Nachfragen zu Vorerfahrung, Situation mit Agentur-Kontakt und Starttermin mit Vollzeit, jeweils mit Vorschlägen zum Antippen
 3. Wenn das Profil vollständig ist: `ready: true`, die App zeigt das gemeinsame Ergebnis mit `match(profile)`
 
