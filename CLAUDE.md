@@ -25,7 +25,9 @@ Beide Varianten füllen dasselbe Profil. Matching, Ergebnis und Sales-Ansicht si
 
 ## Design
 
-Vorlage aus Claude Design liegt unter `/design`. Daran halten. Wo sie fehlt oder unklar ist: schlicht und ruhig, nichts erfinden.
+Vorlage aus Claude Design liegt unter `/design`, maßgeblich ist `Kursfinder Case v2.dc.html`. Daran halten. Wo sie fehlt oder unklar ist: schlicht und ruhig, nichts erfinden.
+
+Entschieden: Optik, Bausteine und Texte kommen aus dem Design. Wo die Abläufe abweichen (Fragen im Klickfinder, Gesprächsablauf im Chat), gilt diese Datei. Kein Mensch im Chat: Übergabe heißt Hinweis plus Weg zu „Beratung anfragen". Die Sales-Ansicht nutzt die Optik des Designs, zeigt aber nur echte Angaben aus dem Profil, keine erfundenen Namen oder Termine.
 
 - Mobil zuerst (390 px), Touch-Ziele mindestens 44 px, gut lesbare Schriftgröße, sichtbarer Fokus.
 - Beide Varianten haben jederzeit sichtbar „Neu starten", das alles zurücksetzt.
