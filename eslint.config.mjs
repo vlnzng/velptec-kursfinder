@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Design-Vorlage aus Claude Design, nicht Teil der App.
+    "design/**",
   ]),
 ]);
 
